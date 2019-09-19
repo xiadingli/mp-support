@@ -1,4 +1,26 @@
 # mp-support
+
+对MybatisPlus开源框架源码Generator模块进行改造，支持开发者生成文件目录进行定制化输出.
+
+源码改造主要有两点：
+
+1、重写service接口，抽取日常开发中常用的方法且便于自行管理，还能减少应用启动成本。
+增加自定义的service接口及实现如下，仅保存常用的增删查改、翻页查询、批量新增方法；
+
+public interface IMPService{
+
+}
+
+public class MPServiceImpl<M extends BaseMapper, T> implements IMPService{
+
+}
+
+2、重写generator模块，达到定制化输出文件目录，实现如下：
+mybatisPuls generator生成文件结构为： 
+![Image text](https://raw.githubusercontent.com/wlstone119/img/master/20190912122500.jpg)
+
+修改为： 
+![Image text](https://raw.githubusercontent.com/wlstone119/img/master/20190912123547.jpg)
 包装了mybatisPlus，可以根据自己公司的骨架生成对应目录的文件<br>
 
 1. 在本地打包之后，引用到自己的工程中
